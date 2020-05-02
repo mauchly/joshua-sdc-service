@@ -1,0 +1,326 @@
+div #recommendations {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #484848;
+  background-color: #fff;
+  margin: 100px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-left: 30px;
+}
+
+#recommendations .title {
+  overflow-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  line-height: 1.25em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 2px 6px 0px 6px;
+  padding-bottom: 20px;
+  padding-left: 31px;
+  padding-top: 25px;
+}
+
+#recommendations span .carousel {
+  display: inline-block;
+  margin: -30px -70px 10px -25px;
+  position: relative !important;
+}
+
+#recommendations div .item {
+  margin: 2px 6px 2px 6px;
+  width: 300px;
+  border: 30px;
+  position: relative !important;
+  overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  text-overflow: ellipsis;
+  cursor:pointer;
+}
+
+#recommendations .images {
+  position: absolute !important;
+  width: 1050px !important;
+  height: 300px !important;
+}
+
+#recommendations .items {
+  position: absolute !important;
+  width: 1050px !important;
+  height: 200px !important;
+}
+
+#recommendations .review {
+  float: right
+}
+
+#recommendations .icon {
+  display: inline-block;
+  width: 12px !important;
+  height: 12px !important;
+  fill: #FF385C !important;
+}
+
+#recommendations .rating {
+  font-weight: 400 !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+#recommendations .line2.regularFont {
+  white-space: nowrap;
+}
+
+#recommendations .regularFont {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+  color: rgb(34, 34, 34) !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+}
+#recommendations .price {
+  font-weight: 800 !important;
+}
+
+#recommendations .greyFont {
+  color: rgb(113, 113, 113) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+}
+
+#recommendations .listingCarousel {
+  position: relative;
+  padding-top: 75%;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
+}
+
+#recommendations .image-slide {
+  display: inline-block;
+  margin: 2px 6px 30px 6px;
+  width: 300px;
+  border: 30px;
+  position: relative !important;
+	transition: background-image .3s ease-in-out;
+}
+
+#recommendations .slide-arrow.image {
+	color: rgb(215, 217, 238);
+	cursor: pointer;
+	font-size: 1.5rem;
+  display: inline-block;
+  position: relative !important;
+  z-index: 1;
+  margin: 0px 0px 0px 0px;
+  top: -95px;
+}
+
+
+#recommendations .slide-arrow.listing  {
+  color: rgb(241, 0, 80);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 1.5rem;;
+  top: 59%;
+  margin: 0px 0px 0px 0px;
+}
+
+#recommendations .slide-arrow.left.image {
+	left: 2.5rem;
+}
+
+#recommendations .slide-arrow.right.image {
+	right: 2.5rem;
+}
+
+#recommendations #leftScroll {
+  left: 0.9rem;
+  top: 13.2rem;
+  position: absolute;
+}
+
+#recommendations #rightScroll {
+  top: 13.4rem;
+  left: 61.5rem;
+  position: absolute;
+}
+
+#recommendations .favorite {
+  top: 2.4rem;
+  right: -18.3rem;
+  position: relative;
+}
+
+._1li8g8e:hover {
+  background-color: rgb(255, 255, 255) !important;
+  color: rgb(0, 0, 0) !important;
+  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
+  transform: scale(1.04) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+._1li8g8e {
+  -webkit-box-pack: center !important;
+  -webkit-box-align: center !important;
+  -webkit-appearance: none !important;
+  display: inline-flex !important;
+  color: rgb(34, 34, 34) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  cursor: pointer !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-clip: padding-box !important;
+  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  border-image: initial !important;
+  outline: 0px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.25s ease 0s, -webkit-transform 0.25s ease 0s, transform 0.25s ease 0s !important;
+}
+
+._1rp5252 {
+  cursor: pointer !important;
+  background-color: transparent !important;
+  color: buttontext !important;
+  display: block !important;
+  border-width: 0px !important;
+  border-style: initial !important;
+  border-color: initial !important;
+  border-image: initial !important;
+}
+
+._1tsvpuw {
+  transform: translateY(0.5px) !important;
+  fill: #FF385C;
+}
+
+#recommendations button {
+  display: none;
+}
+
+#recommendations .image:hover + button {
+  -webkit-appearance: button;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: buttontext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: buttonface;
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 11px system-ui;
+  padding: 1px 7px 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-image: initial;
+}
+
+#recommendations img {
+  border-radius: 6px;
+  height: 200px;
+  width: 300px;
+}
+
+#recommendations button {
+  display: none;
+}
+
+#recommendations #listingContainer {
+  border: 1px;
+  position: absolute;
+  height: 350px;
+  width: 948px;
+  top: 90px;
+  left: 35px;
+  overflow: hidden;
+}
+
+
+#recommendations #listingContent {
+  width: 948px;
+  white-space: nowrap;
+}
+
+
+#recommendations span .singleListing {
+  display: inline-block;
+  margin: 2px 3px 2px 3px;
+  border: 3px;
+  position: relative !important;
+}
+
+#recommendations .dot {
+  height: 5px;
+  width: 5px;
+  margin: 0 3px;
+  background-color: #adadad;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 1s ease
+}
+
+#recommendations .dot.active {
+  background-color: white;
+  height: 5.9px;
+  width: 5.9px;
+}
+
+#recommendations .dot.nearActiveOne {
+  background-color: #adadad;
+  height: 5.2px;
+  width: 5.2px;
+}
+
+#recommendations .dot.nearActiveTwo {
+  background-color: #adadad;
+  height: 4.4px;
+  width: 4.4px;
+}
+
+#recommendations .dot.nearActiveThree {
+  background-color: #adadad;
+  height: 3.6px;
+  width: 3.6px;
+}
+
+#recommendations .dot.nearActiveFour {
+  background-color: #adadad;
+  height: 2.9px;
+  width: 2.9px;
+}
+
+#recommendations .dotsContainer {
+  border: 1px;
+  position: absolute;
+  width: 55px;
+  top: 204px;
+  left: 160px;
+  overflow: hidden;
+}
+
+#recommendations .dotsContent {
+  width: 55px;
+  white-space: nowrap;
+}
+

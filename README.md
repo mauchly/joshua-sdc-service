@@ -1,2 +1,1 @@
-# joshua-sdc-service
-Airbnb recommendations service
+# FEC-recommendation
