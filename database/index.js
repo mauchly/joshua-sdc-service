@@ -2,8 +2,8 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'admin',
-  password : '8989',
+  user     : 'root',
+  password : '',
   database : 'recommendations'
 });
 
@@ -48,5 +48,30 @@ var selectImages = function(listing, callback) {
   });
 };
 
+const addListing = (listing, callback) => {
+  let sql = `INSERT INTO listings (listing_id, listing_type, listing_category, night_price, avg_review, num_review, num_beds, listing_title, is_fav)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  connection.query(sql, [listing.listing_id, listing.listing_type, listing.listing_category, listing.night_price, listing.avg_review, listing.num_review, listing.num_beds, listing.listing_title, listing.is_fav], function(err, results, fields) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
 module.exports.selectAll = selectAll;
 module.exports.selectImages = selectImages;
+module.exports.addListing = addListing;
+
+// {
+//   "listing_id": 10200,
+//   "listing_type": "Shared room",
+//   "listing_category": "apartment",
+//   "night_price": 171.477,
+//   "avg_review": 3.24735,
+//   "num_review": 28,
+//   "num_beds": 4,
+//   "listing_title": "Ex sint ipsum Lorem adipisicing adipisicing.",
+//   "is_fav": 0
+// }

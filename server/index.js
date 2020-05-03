@@ -5,7 +5,9 @@ const path = require('path');
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(express.text());
+app.use(express.urlencoded());
+app.use(express.json());
 
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
@@ -36,11 +38,52 @@ app.get('/listings', function (req, res) {
     } else {
       res.json(data);
       console.log(data);
+    }
+  });
+});
+
+//Add POST - INSERT
+
+app.post('/listings', function (req, res) {
+  console.log(req.body);
+  db.addListing(req.body, function(err, data) {
+    if (err) {
+      console.log('error');
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+      console.log(data);
+    }
+  });
+});
+
+//Add PUT - UPDATE
+
+app.put('/listings', function (req, res) {
+  db.selectAll(req.body, function(err, data) {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+      console.log(data);
 
     }
   });
 });
 
+//Add DELETE - DELETE
+
+app.delete('/listings', function (req, res) {
+  db.selectAll(req.body, function(err, data) {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+      console.log(data);
+
+    }
+  });
+});
 
 app.get('/images', urlencodedParser, function (req, res) {
   console.log('server /images');
