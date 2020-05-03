@@ -59,8 +59,9 @@ app.post('/listings', function (req, res) {
 
 //Add PUT - UPDATE
 
-app.put('/listings', function (req, res) {
-  db.selectAll(req.body, function(err, data) {
+app.put('/listings/:id', function (req, res) {
+  console.log(req.params.id);
+  db.updateListing(req.body, req.params.id, function(err, data) {
     if (err) {
       res.sendStatus(500);
     } else {
@@ -73,8 +74,8 @@ app.put('/listings', function (req, res) {
 
 //Add DELETE - DELETE
 
-app.delete('/listings', function (req, res) {
-  db.selectAll(req.body, function(err, data) {
+app.delete('/listings/:id', function (req, res) {
+  db.deleteListing(req.body, req.params.id, function(err, data) {
     if (err) {
       res.sendStatus(500);
     } else {

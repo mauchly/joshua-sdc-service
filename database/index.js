@@ -60,9 +60,33 @@ const addListing = (listing, callback) => {
   });
 }
 
+const updateListing = (listing, id, callback) => {
+  let sql = `UPDATE listings SET listing_id = ?, listing_type = ?, listing_category = ?, night_price = ?, avg_review = ?, num_review = ?, num_beds = ?, listing_title = ?, is_fav = ? WHERE listing_id = ${id}`;
+  connection.query(sql, [listing.listing_id, listing.listing_type, listing.listing_category, listing.night_price, listing.avg_review, listing.num_review, listing.num_beds, listing.listing_title, listing.is_fav], function(err, results, fields) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
+const deleteListing = (listing, id, callback) => {
+  let sql = `DELETE FROM listings WHERE listing_id = ${id}`;
+  connection.query(sql, function(err, results, fields) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
 module.exports.selectAll = selectAll;
 module.exports.selectImages = selectImages;
 module.exports.addListing = addListing;
+module.exports.updateListing = updateListing;
+module.exports.deleteListing = deleteListing;
 
 // {
 //   "listing_id": 10200,
