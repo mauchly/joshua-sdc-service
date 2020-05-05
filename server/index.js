@@ -36,8 +36,8 @@ app.get('/listings', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(data);
       console.log(data);
+      res.json(data);
     }
   });
 });
@@ -51,8 +51,8 @@ app.post('/listings', function (req, res) {
       console.log('error');
       res.sendStatus(500);
     } else {
-      res.json(data);
       console.log(data);
+      res.json(data);
     }
   });
 });
@@ -65,9 +65,8 @@ app.put('/listings/:id', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(data);
       console.log(data);
-
+      res.json(data);
     }
   });
 });
@@ -79,9 +78,8 @@ app.delete('/listings/:id', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(data);
       console.log(data);
-
+      res.json(data);
     }
   });
 });
@@ -92,8 +90,8 @@ app.get('/images', urlencodedParser, function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(data);
       console.log(data);
+      res.json(data);
     }
   });
 });
