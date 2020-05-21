@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database');
 const path = require('path');
+const knex = require('../database/knex');
 
 const app = express();
 
