@@ -12,7 +12,7 @@ let listingsStream = fs.createWriteStream('./database/listingsCSV');
 let listing_imagesStream = fs.createWriteStream('./database/listings_imagesCSV');
 
 //Initial row for each table
-const listingDataLabels = `listing_id, listing_type listing_category, night_price, avg_review, num_review, number_beds, listing_title, is_fav\n`;
+const listingDataLabels = `listing_id, listing_type, listing_category, night_price, avg_review, num_review, number_beds, listing_title, is_fav\n`;
 const listingImagesDataLabels = `listing_id, image_url\n`;
 
 //generate data for listings table
@@ -34,7 +34,7 @@ const generateDataListingsTable = (id) => {
       units: "sentences"
     });
     let is_fav = i % 20 === 0 ? true : false;
-    listingsResult += `${listing_id}, ${listing_type} ${listing_category}, ${night_price}, ${avg_review}, ${num_review}, ${number_beds}, ${listing_title}, ${is_fav}\n`;
+    listingsResult += `${listing_id}, ${listing_type}, ${listing_category}, ${night_price}, ${avg_review}, ${num_review}, ${number_beds}, ${listing_title}, ${is_fav}\n`;
   }
   return listingsResult;
 }
