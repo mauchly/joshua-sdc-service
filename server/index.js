@@ -32,15 +32,35 @@ app.get('/bundle.js', (req, res) => {
 
 app.use(express.static(__dirname + '/../client/dist'));
 
+//MYSOL
+// app.get('/listings', function (req, res) {
+//   db.selectAll(req.body, function(err, data) {
+//     if (err) {
+//       res.sendStatus(500);
+//     } else {
+//       console.log(data);
+//       res.json(data);
+//     }
+//   });
+// });
+
 app.get('/listings', function (req, res) {
   db.selectAll(req.body, function(err, data) {
     if (err) {
+      console.log('err at get req');
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      console.log('data',data);
+      res.send(data);
     }
-  });
+  })
+  // console.log('req.query', req.query);
+  // knex('listings')
+  //   .where({listing_id: req.query.data})
+  //   .then((rows) => {
+  //     console.log('rows', rows);
+  //     res.send(rows[0]);
+  //   })
 });
 
 //Add POST - INSERT

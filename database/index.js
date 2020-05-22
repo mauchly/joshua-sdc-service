@@ -1,5 +1,7 @@
 //POSTGRES
 const { Client } = require('pg');
+const knex = require('./knex.js');
+
 const client = new Client({
   user: 'postgres',
   host: 'localhost',
@@ -15,6 +17,22 @@ client.connect(err => {
     console.log('connected')
   }
 })
+
+var selectAll = function(listing, callback) {
+  let ramdomListing1 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing2 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing3 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing4 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing5 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing6 = Math.floor(Math.random() * 100) + 10001;
+
+
+  knex.raw('select * from listings where listing_id = ANY(?)', [[ramdomListing1, ramdomListing2, ramdomListing3, ramdomListing4, ramdomListing5, ramdomListing6]])
+    .then((rows) => {
+      console.log('rows', rows);
+      callback(null, rows);
+    })
+};
 
 
 
@@ -103,7 +121,7 @@ client.connect(err => {
 //   });
 // }
 
-// module.exports.selectAll = selectAll;
+module.exports.selectAll = selectAll;
 // module.exports.selectImages = selectImages;
 // module.exports.addListing = addListing;
 // module.exports.updateListing = updateListing;
