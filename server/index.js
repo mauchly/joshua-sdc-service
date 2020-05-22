@@ -50,7 +50,6 @@ app.get('/listings', function (req, res) {
       console.log('err at get req');
       res.sendStatus(500);
     } else {
-      console.log('data',data);
       res.send(data);
     }
   })
@@ -72,8 +71,7 @@ app.post('/listings', function (req, res) {
       console.log('error');
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      res.sendStatus(200);
     }
   });
 });
@@ -86,8 +84,7 @@ app.put('/listings/:id', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      res.sendStatus(200);
     }
   });
 });
@@ -99,8 +96,7 @@ app.delete('/listings/:id', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      res.sendStatus(200);
     }
   });
 });
@@ -109,10 +105,11 @@ app.get('/images', urlencodedParser, function (req, res) {
   console.log('server /images');
   db.selectImages(req.body, function(err, data) {
     if (err) {
+      console.log('error images');
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      console.log('image data', data);
+      res.send(data);
     }
   });
 });
