@@ -32,15 +32,34 @@ app.get('/bundle.js', (req, res) => {
 
 app.use(express.static(__dirname + '/../client/dist'));
 
+//MYSOL
+// app.get('/listings', function (req, res) {
+//   db.selectAll(req.body, function(err, data) {
+//     if (err) {
+//       res.sendStatus(500);
+//     } else {
+//       console.log(data);
+//       res.json(data);
+//     }
+//   });
+// });
+
 app.get('/listings', function (req, res) {
   db.selectAll(req.body, function(err, data) {
     if (err) {
+      console.log('err at get req');
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      res.send(data);
     }
-  });
+  })
+  // console.log('req.query', req.query);
+  // knex('listings')
+  //   .where({listing_id: req.query.data})
+  //   .then((rows) => {
+  //     console.log('rows', rows);
+  //     res.send(rows[0]);
+  //   })
 });
 
 //Add POST - INSERT
@@ -52,8 +71,7 @@ app.post('/listings', function (req, res) {
       console.log('error');
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      res.sendStatus(200);
     }
   });
 });
@@ -66,8 +84,7 @@ app.put('/listings/:id', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      res.sendStatus(200);
     }
   });
 });
@@ -79,8 +96,7 @@ app.delete('/listings/:id', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      res.sendStatus(200);
     }
   });
 });
@@ -89,10 +105,11 @@ app.get('/images', urlencodedParser, function (req, res) {
   console.log('server /images');
   db.selectImages(req.body, function(err, data) {
     if (err) {
+      console.log('error images');
       res.sendStatus(500);
     } else {
-      console.log(data);
-      res.json(data);
+      console.log('image data', data);
+      res.send(data);
     }
   });
 });

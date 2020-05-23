@@ -14,20 +14,39 @@ class ListingData extends React.Component {
   }
 
   componentDidMount() {
+    //OLD
+    // $.ajax({
+    //   url: 'http://ec2-3-22-118-181.us-east-2.compute.amazonaws.com/listings',
+    //   success: (data) => {
+    //     this.setState({
+    //       listings: data
+    //     });
+    //     //console.log('listing data in ListingData', data);
+    //   },
+    //   error: (err) => {
+    //     console.log('err', err);
+    //   }
+    // });
 
     $.ajax({
-      url: 'http://ec2-3-22-118-181.us-east-2.compute.amazonaws.com/listings',
-      success: (data) => {
-        this.setState({
-          listings: data
-        });
-        //console.log('listing data in ListingData', data);
+      url: 'http://localhost:3003/listings',
+      success: (results) => {
+        this.setState(() => ({listings: results.rows}));
       },
-      error: (err) => {
-        console.log('err', err);
+      error: () => {
+        console.log('error in onload API call');
       }
-    });
+    })
 
+    $.ajax({
+      url: 'http://localhost:3003/images',
+      success: (results) => {
+        this.setState(() => ({images: results.rows}));
+      },
+      error: () => {
+        console.log('error in onload API call');
+      }
+    })
   }
 
   render() {

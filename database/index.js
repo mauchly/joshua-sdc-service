@@ -1,5 +1,7 @@
 //POSTGRES
 const { Client } = require('pg');
+const knex = require('./knex.js');
+
 const client = new Client({
   user: 'postgres',
   host: 'localhost',
@@ -15,6 +17,36 @@ client.connect(err => {
     console.log('connected')
   }
 })
+
+var selectAll = function(listing, callback) {
+  let ramdomListing1 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing2 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing3 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing4 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing5 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing6 = Math.floor(Math.random() * 100) + 10001;
+
+
+  knex.raw('select * from listings where listing_id = ANY(?)', [[ramdomListing1, ramdomListing2, ramdomListing3, ramdomListing4, ramdomListing5, ramdomListing6]])
+    .then((rows) => {
+      callback(null, rows);
+    })
+};
+
+var selectImages = function(listing, callback) {
+  let ramdomListing1 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing2 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing3 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing4 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing5 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing6 = Math.floor(Math.random() * 100) + 10001;
+
+  knex.raw('select * from listing_images where listing_id = ANY(?)', [[ramdomListing1, ramdomListing2, ramdomListing3, ramdomListing4, ramdomListing5, ramdomListing6]])
+    .then((rows) => {
+      // console.log('image rows', rows);
+      callback(null, rows);
+    })
+};
 
 
 
@@ -103,20 +135,75 @@ client.connect(err => {
 //   });
 // }
 
-// module.exports.selectAll = selectAll;
-// module.exports.selectImages = selectImages;
-// module.exports.addListing = addListing;
-// module.exports.updateListing = updateListing;
-// module.exports.deleteListing = deleteListing;
+const addListing = (listing, callback) => {
+  console.log('listing', listing);
+  knex('listings')
+    .insert({
+      listing_id: listing.listing_id,
+      listing_type: listing.listing_type,
+      listing_category: listing.listing_category,
+      night_price: listing.night_price,
+      avg_review: listing.avg_review,
+      num_review: listing.num_review,
+      num_beds: listing.num_beds,
+      listing_title: listing.listing_title,
+      is_fav: listing.is_fav
+    })
+    .then((results) => {
+      console.log('insert complete')
+      callback(null, results);
+    }
+  )
+}
+
+const updateListing = (listing, id, callback) => {
+  console.log('listing', listing);
+  knex('listings')
+    .where('listing_id', id)
+    .update({
+      listing_id: listing.listing_id,
+      listing_type: listing.listing_type,
+      listing_category: listing.listing_category,
+      night_price: listing.night_price,
+      avg_review: listing.avg_review,
+      num_review: listing.num_review,
+      num_beds: listing.num_beds,
+      listing_title: listing.listing_title,
+      is_fav: listing.is_fav
+    })
+    .then((results) => {
+      console.log('update complete')
+      callback(null, results);
+    }
+  )
+}
+
+const deleteListing = (listing, id, callback) => {
+  console.log('listing', listing);
+  knex('listings')
+    .where('listing_id', id)
+    .del()
+    .then((results) => {
+      console.log('delete complete')
+      callback(null, results);
+    }
+  )
+}
+
+module.exports.selectAll = selectAll;
+module.exports.selectImages = selectImages;
+module.exports.addListing = addListing;
+module.exports.updateListing = updateListing;
+module.exports.deleteListing = deleteListing;
 
 // {
-//   "listing_id": 10200,
-//   "listing_type": "Shared room",
-//   "listing_category": "apartment",
-//   "night_price": 171.477,
-//   "avg_review": 3.24735,
-//   "num_review": 28,
-//   "num_beds": 4,
-//   "listing_title": "Ex sint ipsum Lorem adipisicing adipisicing.",
-//   "is_fav": 0
+  // "listing_id": 10200,
+  // "listing_type": "Shared room",
+  // "listing_category": "apartment",
+  // "night_price": 171.477,
+  // "avg_review": 3.24735,
+  // "num_review": 28,
+  // "num_beds": 4,
+  // "listing_title": "Ex sint ipsum Lorem adipisicing adipisicing.",
+  // "is_fav": 0
 // }
