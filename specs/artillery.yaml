@@ -1,0 +1,53 @@
+config:
+  target: "http://localhost:3003"
+  processor: "./artilleryFunctions.js"
+  phases:
+    - duration: 60
+      arrivalRate: 500
+    # - duration: 120
+    #   arrivalRate: 5
+    #   rampTo: 50
+    # - duration: 600
+    #   arrivalRate: 50
+  # payload:
+  #   path: "keywords.csv"
+  #   fields:
+  #     - "keywords"
+scenarios:
+  # - name: "GET request to listings"
+  #   flow:
+  #     - get:
+  #         url: "/listings"
+  #         body: ""
+  #         capture:
+  #           json: "$.results[0].rows"
+  #           as: "rows"
+  # - name: "GET request to images"
+  #   flow:
+  #     - get:
+  #         url: "/images"
+  #         body: ""
+  #         capture:
+  #           json: "$.results[0].rows"
+  #           as: "rows"
+  # - name: "POST request to listings"
+  #   flow:
+  #     - function: "generateArtilleryData"
+  #     - post:
+  #         url: "/listings"
+  #         json:
+  #           listing_id: "{{ listing_id }}"
+  #           listing_type: "{{ listing_type }}"
+  #           listing_category: "{{ listing_category }}"
+  #           night_price: "{{ night_price }}"
+  #           avg_review: "{{ avg_review }}"
+  #           num_review: "{{ num_review }}"
+  #           num_beds: "{{ num_beds }}"
+  #           listing_title: "{{ listing_title }}"
+  #           is_fav: "{{ is_fav }}"
+  # - name: "DELETE request to listings"
+  #   flow:
+  #     - function: "generateArtilleryData"
+  #     - delete:
+  #         url: "/listings/{{ listing_id }}"
+

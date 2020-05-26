@@ -19,12 +19,12 @@ client.connect(err => {
 })
 
 var selectAll = function(listing, callback) {
-  let ramdomListing1 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing2 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing3 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing4 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing5 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing6 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing1 = Math.floor(Math.random() * 1000000) + 10001;
+  let ramdomListing2 = Math.floor(Math.random() * 1000000) + 100010;
+  let ramdomListing3 = Math.floor(Math.random() * 1000000) + 1000100;
+  let ramdomListing4 = Math.floor(Math.random() * 1000000) + 5000000;
+  let ramdomListing5 = Math.floor(Math.random() * 1000000) + 7000000;
+  let ramdomListing6 = Math.floor(Math.random() * 1000000) + 9000000;
 
 
   knex.raw('select * from listings where listing_id = ANY(?)', [[ramdomListing1, ramdomListing2, ramdomListing3, ramdomListing4, ramdomListing5, ramdomListing6]])
