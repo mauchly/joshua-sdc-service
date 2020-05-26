@@ -1,12 +1,13 @@
 //POSTGRES
 const { Client } = require('pg');
 const knex = require('./knex.js');
+require('dotenv').config()
 
 const client = new Client({
   user: 'postgres',
   host: 'localhost',
   database: 'recommendations',
-  password: 'postgres',
+  password: process.env.DB_PASS,
   port: 5432,
 })
 

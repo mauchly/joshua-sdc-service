@@ -4,3 +4,4 @@ client/dist/bundle.js.br
 client/dist/bundle.js.gz
 database/listingsCSV
 database/listings_imagesCSV
+.env
