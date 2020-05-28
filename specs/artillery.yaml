@@ -2,26 +2,24 @@ config:
   target: "http://localhost:3003"
   processor: "./artilleryFunctions.js"
   phases:
-    - duration: 60
-      arrivalRate: 500
-    # - duration: 120
+    - duration: 10
+      arrivalRate: 10
+    # - duration: 300
     #   arrivalRate: 5
-    #   rampTo: 50
+    #   rampTo: 1100
     # - duration: 600
     #   arrivalRate: 50
-  # payload:
-  #   path: "keywords.csv"
-  #   fields:
-  #     - "keywords"
 scenarios:
-  # - name: "GET request to listings"
-  #   flow:
-  #     - get:
-  #         url: "/listings"
-  #         body: ""
-  #         capture:
-  #           json: "$.results[0].rows"
-  #           as: "rows"
+  - name: "GET request to listings"
+    flow:
+      - loop:
+        - get:
+            url: "/listings"
+            body: ""
+            capture:
+              json: "$.results[0].rows"
+              as: "rows"
+        count: 100
   # - name: "GET request to images"
   #   flow:
   #     - get:
