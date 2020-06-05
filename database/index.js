@@ -1,23 +1,23 @@
 //POSTGRES
-const { Client } = require('pg');
+// const { Client } = require('pg');
 const knex = require('./knex.js');
 require('dotenv').config()
 
-const client = new Client({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASS,
-  port: process.env.DB_PORT
-})
+// const client = new Client({
+//   user: process.env.DB_USER,
+//   host: process.env.DB_HOST,
+//   database: process.env.DB_DATABASE,
+//   password: process.env.DB_PASS,
+//   port: process.env.DB_PORT
+// })
 
-client.connect(err => {
-  if (err) {
-    console.error('connection error', err.stack)
-  } else {
-    console.log('db connected')
-  }
-})
+// client.connect(err => {
+//   if (err) {
+//     console.error('connection error', err.stack)
+//   } else {
+//     console.log('db connected')
+//   }
+// })
 
 var selectAll = function(listing, callback) {
   let ramdomListing1 = Math.floor(Math.random() * 1000000) + 10001;
