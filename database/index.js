@@ -15,7 +15,7 @@ client.connect(err => {
   if (err) {
     console.error('connection error', err.stack)
   } else {
-    console.log('connected')
+    console.log('db connected')
   }
 })
 
@@ -26,7 +26,6 @@ var selectAll = function(listing, callback) {
   let ramdomListing4 = Math.floor(Math.random() * 1000000) + 5000000;
   let ramdomListing5 = Math.floor(Math.random() * 1000000) + 7000000;
   let ramdomListing6 = Math.floor(Math.random() * 1000000) + 9000000;
-
 
   knex.raw('select * from listings where listing_id = ANY(?)', [[ramdomListing1, ramdomListing2, ramdomListing3, ramdomListing4, ramdomListing5, ramdomListing6]])
     .then((rows) => {
