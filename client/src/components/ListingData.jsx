@@ -29,7 +29,7 @@ class ListingData extends React.Component {
     // });
 
     $.ajax({
-      url: 'http://localhost:3003/listings',
+      url: '/listings',
       success: (results) => {
         this.setState(() => ({listings: results.rows}));
       },
@@ -39,7 +39,7 @@ class ListingData extends React.Component {
     })
 
     $.ajax({
-      url: 'http://localhost:3003/images',
+      url: '/images',
       success: (results) => {
         this.setState(() => ({images: results.rows}));
       },
