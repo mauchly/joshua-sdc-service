@@ -109,7 +109,7 @@ app.get('/images', urlencodedParser, function (req, res) {
       console.log('error images');
       res.sendStatus(500);
     } else {
-      console.log('image data', data);
+      // console.log('image data', data);
       res.send(data);
     }
   });
