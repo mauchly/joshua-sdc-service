@@ -29,21 +29,14 @@ class Carousel extends React.Component {
       const id = this.props.listingId.listing_id;
       //console.log('listingid', this.props.listingId.listing_id);
       $.ajax({
-        url: 'http://ec2-54-183-138-229.us-west-1.compute.amazonaws.com:3002/listing-info',
+        url: `http://54.177.223.78:3002/${id}/rec-photos`,
         data: {listingId: id},
         success: (data) => {
           //console.log('from jason', data);
-          let thisListingImages = {};
-          const imageValues = Object.values(data[0]);
-          thisListingImages[imageValues[1]] = [];
-          for (let i = 5; i < 48; i += 3) {
-            if (imageValues[i] !== null) {
-              thisListingImages[imageValues[1]].push(imageValues[i]);
-            }
-          }
-          //console.log(thisListingImages);
+          let thisListingImages = Object.values(data);
+          //console.log('thisListingImages', thisListingImages);
           this.setState({
-            imgUrls: thisListingImages[id]
+            imgUrls: thisListingImages
           });
         },
         error: (err) => {
