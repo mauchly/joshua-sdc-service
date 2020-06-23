@@ -46,7 +46,15 @@ app.use(express.static(__dirname + '/../client/dist'));
 // });
 
 app.get('/listings', function (req, res) {
-  db.selectAll(req.body, function(err, data) {
+
+  let url = req.headers.referer;
+  let listingId = url.split('/').pop();
+
+  if (typeof +listingId !== 'number') {
+    listingId = '9000000';
+  }
+
+  db.selectAll(listingId, function(err, data) {
     if (err) {
       console.log('err at get req');
       res.sendStatus(500);

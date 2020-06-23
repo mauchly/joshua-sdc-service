@@ -20,12 +20,19 @@ require('dotenv').config()
 // })
 
 var selectAll = function(listing, callback) {
-  let ramdomListing1 = Math.floor(Math.random() * 1000000) + 10001;
-  let ramdomListing2 = Math.floor(Math.random() * 1000000) + 100010;
-  let ramdomListing3 = Math.floor(Math.random() * 1000000) + 1000100;
-  let ramdomListing4 = Math.floor(Math.random() * 1000000) + 5000000;
-  let ramdomListing5 = Math.floor(Math.random() * 1000000) + 7000000;
-  let ramdomListing6 = Math.floor(Math.random() * 1000000) + 9000000;
+  // let ramdomListing1 = Math.floor(Math.random() * 1000000) + 10001;
+  // let ramdomListing2 = Math.floor(Math.random() * 1000000) + 100010;
+  // let ramdomListing3 = Math.floor(Math.random() * 1000000) + 1000100;
+  // let ramdomListing4 = Math.floor(Math.random() * 1000000) + 5000000;
+  // let ramdomListing5 = Math.floor(Math.random() * 1000000) + 7000000;
+  // let ramdomListing6 = Math.floor(Math.random() * 1000000) + 9000000;
+
+  let ramdomListing1 = +listing + 1;
+  let ramdomListing2 = +listing + 2;
+  let ramdomListing3 = +listing + 3;
+  let ramdomListing4 = +listing + 4;
+  let ramdomListing5 = +listing + 5;
+  let ramdomListing6 = +listing + 6;
 
   knex.raw('select * from listings where listing_id = ANY(?)', [[ramdomListing1, ramdomListing2, ramdomListing3, ramdomListing4, ramdomListing5, ramdomListing6]])
     .then((rows) => {

@@ -38,15 +38,15 @@ class ListingData extends React.Component {
       }
     })
 
-    $.ajax({
-      url: '/images',
-      success: (results) => {
-        this.setState(() => ({images: results.rows}));
-      },
-      error: () => {
-        console.log('error in onload API call');
-      }
-    })
+    // $.ajax({
+    //   url: '/images',
+    //   success: (results) => {
+    //     this.setState(() => ({images: results.rows}));
+    //   },
+    //   error: () => {
+    //     console.log('error in onload API call');
+    //   }
+    // })
   }
 
   render() {
