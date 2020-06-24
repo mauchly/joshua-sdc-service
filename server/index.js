@@ -47,12 +47,16 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/listings', function (req, res) {
 
-  let url = req.headers.referer;
-  let listingId = url.split('/').pop();
+  console.log('req.query.data', typeof req.query.data);
 
-  if (typeof +listingId !== 'number') {
-    listingId = '9000000';
-  }
+  let listingId = req.query.data;
+
+  // let url = req.headers.referer;
+  // let listingId = url.split('/').pop();
+
+  // if (typeof +listingId !== 'number') {
+  //   listingId = '9000000';
+  // }
 
   db.selectAll(listingId, function(err, data) {
     if (err) {
