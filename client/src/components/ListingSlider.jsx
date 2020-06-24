@@ -63,7 +63,7 @@ class ListingSlider extends React.Component {
         <span id="listingContainer" >
           <span id="listingContent">
             {
-              this.props.details.map((detail, index) => {
+              this.props.details !== undefined && this.props.details.map((detail, index) => {
                 return (
                   <span className="singleListing" key={index} >
                     <Carousel listingId={ detail }/>

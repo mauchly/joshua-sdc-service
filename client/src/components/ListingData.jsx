@@ -28,9 +28,21 @@ class ListingData extends React.Component {
     //   }
     // });
 
+    let url = window.location.href;
+    let listingId;
+    if (url.split.length) {
+      listingId = url.split('/').pop();
+    } else {
+      listingId = '9000000';
+    }
+
     $.ajax({
       url: '/listings',
+      data: {data: listingId},
+      dataType: 'text',
       success: (results) => {
+        let keys = Object.keys(JSON.parse(results));
+        results = JSON.parse(results);
         this.setState(() => ({listings: results.rows}));
       },
       error: () => {
